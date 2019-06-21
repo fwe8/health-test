@@ -1,6 +1,7 @@
 applications:
   - name: health-test
     memory: 600M
+    disk_quota: 256M
     instances: 1
     random-route: true
     path: build/libs/health-test-1.0.0-SNAPSHOT-boot.jar
