@@ -1,0 +1,37 @@
+buildscript {
+    ext.kotlin_version = '1.3.40'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'java'
+
+group 'non.health.test'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    archiveClassifier='boot'
+    mainClassName = 'health.HelloWorldKt'
+}
+
+
+dependencies {
+    compile 'io.javalin:javalin:3.0.0'
+    compile "org.slf4j:slf4j-simple:1.7.26"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
